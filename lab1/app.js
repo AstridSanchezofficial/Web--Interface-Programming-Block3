@@ -59,37 +59,13 @@ function renderCourses(courses){
 };
 
 
-//TESTING STUDENT DATA AND CONNECTING BOTON
 
-const student_btn=document.getElementById("load-student-btn");
-
-student_btn.addEventListener("click", () => {
-    getStudentData()
-    .then((student)=>{
-    renderStudent(student)
-    });
-
-
-});
-
-//TESTING RENDER COURSES WHEN CLICKING BUTON TO LOAD COURSES
-
-const load_btn=document.getElementById("load-courses-btn");
-
-load_btn.addEventListener("click",()=>{
-
-    getCourseData()
-    .then((courses)=>{
-        renderCourses(courses)
-    });
-  
-
-});
 
 
 //CLEAR BUTON
 
 const clear_btn= document.getElementById("clear-btn");
+
 
 clear_btn.addEventListener("click" , () =>{
 
@@ -116,6 +92,47 @@ clear_btn.addEventListener("click" , () =>{
 
 });
 
+//TESTING STUDENT DATA AND CONNECTING BOTON
+
+const student_btn=document.getElementById("load-student-btn");
+
+student_btn.addEventListener("click", () => {
+    getStudentData()
+    .then((student)=>{
+        renderStudent(student)
+    })
+
+    .catch((error) =>{
+        const status = document.getElementById("status");
+        status.innerHTML="Error";
+        console.log("Errrrror!")
+        
+    })
+    
+
+
+
+});
+
+//TESTING RENDER COURSES WHEN CLICKING BUTON TO LOAD COURSES
+
+const load_btn=document.getElementById("load-courses-btn");
+
+load_btn.addEventListener("click",()=>{
+
+    getCourseData()
+    .then((courses)=>{
+        renderCourses(courses)
+    })
+    .catch((error) =>{
+        const status = document.getElementById("status");
+        status.innerHTML="Error";
+        console.log("Errrrror!")
+        
+    })
+  
+
+});
 
 //Aqui result es lo que pasamos en resolve
 
