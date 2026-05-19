@@ -8,17 +8,22 @@
 </head>
 <body>
     <main>
-        <h1>User & post Dashboard</h1>
-        <p>This page serves to load the first 5 users from API and displays the user's post</p>
-        <section id="input-section">
-            <button id="load-users">Load users</button>
-            <button id="clear-button">Clear users</button>
+        <h1 class="text-left p-3">User & post Dashboard</h1>
+        <p class="text-left mx-3">This page serves to load the first 5 users from API and displays the user's post</p>
+        <section id="input-section" class="d-flex my-4">
+            <button id="load-users" class="mx-3 p-2 rounded bg-primary border border-primary-subtle text-light">Load users</button>
+            <button id="clear-button" class="p-2 rounded bg-black border border-black text-light ">Clear users</button>
         </section>
 
         <section id="output-section">
-            <div id="status-users">Ready!</div>
-            <div id="users-container">
             
+            <div  id="status" class="container-fluid d-flex my-3 p-4 rounded bg-success-subtle text-success" role="status">
+                <span id="spinner" class="spinner-grow d-none mx-2"></span>
+                <span id="status-users" class="p-2" >Ready!</span>
+                
+                
+            </div>
+            <div id="users-container" class="container-fluid d-flex flex-row">
             </div>
 
         </section>
