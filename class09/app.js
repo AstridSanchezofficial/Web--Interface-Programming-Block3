@@ -25,5 +25,6 @@ loadUsersBtn.addEventListener("click",()=>{
 
 clearUsersBtn.addEventListener("click",()=>{
     clearUsers(usersContainer)
+    status.textContent="Click the button to load users"
 })
 
