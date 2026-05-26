@@ -17,7 +17,8 @@ export function clearUsers (container){
 export function createCard(user){
     const article=document.createElement("article");
     //Adding Article 
-    article.className=("card my-5 p-2 shadow-sm rounded col-md-3 border-info")
+    article.className=("card my-5 p-2 shadow-sm rounded col-md-3 border-info");
+  
 
     article.innerHTML=
     `<h2 class="card-header bg-info text-light">${user.name}</h2>
@@ -26,4 +27,14 @@ export function createCard(user){
     `;
 
     return article
+}
+
+// Is it worth it to create a function to style the parent container?
+export function containerAppearance(container){
+    container.className=("d-flex flex-wrap justify-content-center gap-3");
+}
+
+export function buttonsAppearance(loadBtn, clearBtn){
+    loadBtn.className=("btn btn-success text-light")
+    clearBtn.className=("btn btn-secondary text-light")
 }
