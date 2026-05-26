@@ -1,11 +1,12 @@
 // The purpose of this file is to connect everything
 import {fetchUsers} from "./api.js"
 import {renderUsers} from "./ui.js"
+import {clearUsers} from "./ui.js"
 
 const loadUsersBtn=document.getElementById("load-users-btn")
-const status= document.getElementsById("status")
+const status= document.getElementById("status")
 const usersContainer=document.getElementById("users-container")
-
+const clearUsersBtn=document.getElementById("clear-btn")
 
 loadUsersBtn.addEventListener("click",()=>{
     status.textContent="Loading Users"
@@ -21,3 +22,8 @@ loadUsersBtn.addEventListener("click",()=>{
 
     });
 });
+
+clearUsersBtn.addEventListener("click",()=>{
+    clearUsers(usersContainer)
+})
+
