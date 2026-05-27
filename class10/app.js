@@ -121,10 +121,17 @@ class Boook{
 }
 
 const book3= new Boook("Architecture","Frida Ledezma")
+const book4=new Boook("The Senior designer","Diego Cornelle")
 console.log(book3.hasOwnProperty("title"));
 console.log(book3.hasOwnProperty("author"));
 console.log(book3.hasOwnProperty("displayInfo"));
    
+//Assigning a property just to book3
+
+Boook.prototype.category="Construction"
+book3.category="Architecture"
+console.log(book3.category)
+console.log(book4.category)
 
 
 
