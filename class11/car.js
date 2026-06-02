@@ -50,6 +50,9 @@ function ElectricCar(brand,model,batteryLevel){
     this.battery_level=batteryLevel
 }
 
+
+ElectricCar.prototype=Object.create(Car.prototype);
+ElectricCar.prototype.constructor=ElectricCar;
 //!!!!8.Adding its own method to ElectricCar(we do not use prototype cause is not sharing?)
 
 ElectricCar.prototype.charge=function(){
@@ -58,7 +61,6 @@ ElectricCar.prototype.charge=function(){
 
 //9.Conecting the prototype
 
-ElectricCar.prototype=Object.create(Car.prototype);
-ElectricCar.prototype.constructor=ElectricCar;
+
 
 export{Vehicule,Car,ElectricCar};

@@ -1,5 +1,5 @@
-import {Vehicule,Car} from "./car.js"
-import {Animal,Cat} from "./animal.js"
+import {Vehicule,Car, ElectricCar} from "./car.js"
+import {Animal,Cat,Dog} from "./animal.js"
 //Step 6- Display result in the Page 
 
 const runBtn=document.getElementById("run-demo-btn");
@@ -8,12 +8,15 @@ const output=document.getElementById("output");
 runBtn.addEventListener("click", ()=>{
     const car1=new Car("Toyota","Corolla");
     const car2=new Car("Honda","Civic",true);
+    const car3=new ElectricCar("Tesla","Furious 1",90)
     const animal1=new Cat("Cookie","orange","persian")
+    const animal2= new Dog("Slinky","brown","Hot-dog")
     //Creating animals
     
 
 
     output.innerHTML=`
+    <h2>Testing Cars</h2>
     <p>${car1.describe()}</p>
     <p>${car1.showModel()}</p>
     <p>${car1.start()}</p>
@@ -21,10 +24,20 @@ runBtn.addEventListener("click", ()=>{
     <p>${car2.describe()}</p>
     <p>${car2.showModel()}</p>
     <p>${car2.stop()}</p>
+    
     <hr>
-    <h2>Testing Animal</h2>
+    <p>${car3.describe()}</p>
+    <p>${car3.showModel()}</p>
+    <p>${car3.stop()}</p>
+    <p>${car3.charge()}</p>
+    <hr>
+    <h2>Testing Cat</h2>
     <p>${animal1.describe()}</p>
     <p>${animal1.meow()}</p>
+    <hr>
+    <h2>Testing dog</h2>
+    <p>${animal2.describe()}</p>
+    <p>${animal2.bark()}</p>
 
     `
 });

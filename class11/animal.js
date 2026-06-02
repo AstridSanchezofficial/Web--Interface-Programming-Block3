@@ -13,7 +13,7 @@ Animal.prototype.describe=function(){
 
 function Cat(name,color,cat_breed,type="cat"){
     Animal.call(this,name,color)
-    this.bread=cat_breed
+    this.cat_breed=cat_breed
     this.type=type
 }
 
@@ -26,7 +26,18 @@ Cat.prototype.meow=function(){
     return `${this.name} the ${this.type} meows`
 };
 
+function Dog(name,color,dog_breed,type="dog"){
+    Animal.call(this,name,color)
+    this.dog_breed=dog_breed
+    this.type=type
+}
 
+Dog.prototype=Object.create(Animal.prototype);
+Dog.prototype.constructor=Dog;
 
-export {Animal,Cat};
+Dog.prototype.bark=function(){
+    return `${this.name} the ${this.type} barks`
+}
+
+export {Animal,Cat,Dog};
     
