@@ -38,6 +38,35 @@ Dog.prototype.constructor=Dog;
 Dog.prototype.bark=function(){
     return `${this.name} the ${this.type} barks`
 }
+//Challenge 1
+Dog.prototype.describe=function(){
+    return `${this.name} is a domestic anamal, ${this.color} and a ${this.dog_breed}`
+}
+// Example using classes 
 
-export {Animal,Cat,Dog};
+class AnimalClass{
+    constructor(name,color){
+        this.animal_name=name
+        this.animal_color=color
+    }
+
+    describe(){
+        return `${this.animal_name} is a domestic animal`
+    }
+}
+
+//DogClass (child class of animal)
+class DogClass extends AnimalClass{
+    constructor(name,color,breed){
+        super(name,color);
+        this.breed=breed;
+    }
+    bark(){
+    return `${this.animal_name} barkss`;
+}
+};
+
+export{Animal,Cat,Dog,AnimalClass,DogClass}
+
+
     

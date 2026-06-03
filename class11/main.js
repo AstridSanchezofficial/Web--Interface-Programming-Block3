@@ -1,5 +1,5 @@
 import {Vehicule,Car, ElectricCar} from "./car.js"
-import {Animal,Cat,Dog} from "./animal.js"
+import {Animal,Cat,Dog,AnimalClass,DogClass} from "./animal.js"
 //Step 6- Display result in the Page 
 
 const runBtn=document.getElementById("run-demo-btn");
@@ -41,3 +41,21 @@ runBtn.addEventListener("click", ()=>{
 
     `
 });
+
+//Task — Prove inheritance works
+console.log(Object.getPrototypeOf(Dog.prototype) === Animal.prototype);
+console.log(Object.getPrototypeOf(Car.prototype) === Vehicule.prototype);
+console.log(Object.getPrototypeOf(ElectricCar.prototype) === Car.prototype);
+
+//TESTING USING CLASSES
+
+const dog1=new DogClass("Puchi","gold","Golden Retriver")
+console.log(dog1.describe());
+console.log(dog1.bark())
+
+export {Animal,Cat,Dog,AnimalClass};
+
+//TESTING CHALLENGE OVERRITING DSESCRIBE METHOD   INSIDE DOG
+
+const dog2=new Dog("Mimi","black","Pug");
+console.log(dog2.describe())
