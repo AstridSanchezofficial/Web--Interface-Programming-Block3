@@ -11,22 +11,13 @@ loadBtn.addEventListener("click", () => {
 
     fetchTournaments()
     .then((data) => {
-        
-        console.log("everything okay");
-        status.textContent = "Tournaments loaded!";
+
      
-        tournaments=data.map(t=> new Tournament(
-            t.id,
-            t.name,
-            t.game,
-            t.entryFee,
-            t.maxPlayers,
-            t.registeredPlayers,
-            t.status
-        ))
+        tournaments=data.map(t=>Tournament.fromObject(t));
        
         const cards=tournaments.map(tournament=> createCard(tournament));
         tournamentsSection.innerHTML= cards.join("")
+        status.textContent = "Tournaments loaded!";
         
         
 
