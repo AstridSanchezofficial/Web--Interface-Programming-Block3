@@ -6,15 +6,25 @@
     <title>Tournaments</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-<body>
-    <h1>Arcade Tournaments 2026</h1>
-    <p>Welcome to the 2nd version of Vanier Arcade Tournaments</p>
-    <button id="load-btn">Load tournaments</button>
-    <button id="clear-btn">Clear</button>
-    <p id="status">Click the button to load the tournaments</p>
-    <div id="tournaments-container"></div>
-    <section id="registration-detail">
-        <p id="registration-status"></p>
+<body class="m-4">
+    <header>
+        <h1>Arcade Tournaments 2026</h1>
+        <p>Welcome to the 2nd version of Vanier Arcade Tournaments</p>
+    </header>
+    
+    <section id="tournaments-section">
+        <h2>Tournaments</h2>
+        <button id="load-btn">Load tournaments</button>
+        <button id="clear-btn">Clear</button>
+        <p id="status">Click the button to load the tournaments</p>
+        <div id="tournaments-container"></div>
+    </section>
+  
+
+    <section id="registration-section">
+        <h2>Registrations</h2>
+        <p id="registration-status">No registrations yet</p>
+        <div id="registrations"></div>
     </section>
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
