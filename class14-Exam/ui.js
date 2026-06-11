@@ -27,6 +27,9 @@ export function createRegistration(registration){
     `
 }
 
+export function styleStatus(status,statusMessage){
+    status.textContent=`${statusMessage}`
+}
 export function clearContent(section){
     section.innerHTML=""
 }

@@ -3,7 +3,7 @@ import { Tournament } from "./tournament.js";
 import {clearContent,createCard,
         createRegistration,styleTournamentSection,
         styleBtns,styleRegistrationSection
-        ,renderSummary} from "./ui.js";
+        ,renderSummary,styleStatus} from "./ui.js";
 import { getRegistrations } from "./registration.js";
 
 
@@ -20,31 +20,35 @@ let tournaments=[]
 styleBtns(loadBtn,clearBtn)
 
 loadBtn.addEventListener("click", () => {
-    status.textContent = "Loading...";
+    styleStatus(status,"Loading...");
 
-    fetchTournaments()
-    .then((data) => {
-        tournaments=data.map(t=>Tournament.fromObject(t));
-       
-        const cards=tournaments.map(tournament=> createCard(tournament));
-        styleTournamentSection(tournamentsSection)
-        tournamentsSection.innerHTML= cards.join("")
-        
-        status.textContent = "Tournaments loaded!"
+    setTimeout(() => {
+        fetchTournaments()
+            .then((data) => {
+                tournaments = data.map(t => Tournament.fromObject(t));
 
-    })
-    .catch((error) => {
-        status.textContent = `Failed to load Tournaments: ${error.message}`;
-    })
-   
+                const cards = tournaments.map(tournament =>
+                    createCard(tournament)
+                );
+
+                styleTournamentSection(tournamentsSection);
+                tournamentsSection.innerHTML = cards.join("");
+
+                styleStatus(status,"Tournaments loaded successfully")
+            })
+            .catch((error) => {
+
+                styleStatus(status,`Failed to load Tournaments ${error.message}`)
+            });
+    }, 2000);
 });
-
+   
 clearBtn.addEventListener("click",()=>{
     clearContent(tournamentsSection)
-    status.textContent="Click the button to load the tournaments"
+    styleStatus(status,"Click the button to load the tournaments")
     clearContent(registrationContainer)
     clearContent(summary)
-    registrationStatus.textContent="No registrations yet"
+    styleStatus(registrationStatus,"No registrations yet")
     
 })
 
@@ -52,7 +56,6 @@ tournamentsSection.addEventListener("click", (e) => {
     const button = e.target.closest(".load-registrations");
 
     if (!button) return;
-
     const tournamentId = button.dataset.id;
 
     getRegistrations(tournamentId)
@@ -60,7 +63,7 @@ tournamentsSection.addEventListener("click", (e) => {
         const cardsRegistrations=registrations.map(element=>createRegistration(element))
         registrationContainer.innerHTML=cardsRegistrations.join("")
         styleRegistrationSection(registrationContainer)
-        registrationStatus.textContent="Registrations loaded succesfully"
+        styleStatus(registrationStatus,"Registrations loaded successfully!")
         const tournament = tournaments.find(
         t => t.id === Number(tournamentId)
     );
@@ -68,7 +71,7 @@ tournamentsSection.addEventListener("click", (e) => {
     renderSummary(tournament, registrations);
     })
     .catch((error)=>{
-        registrationStatus.textContent=`We could not load the registrations:${error.message}`
+        styleSatus(registrationStatus,`We could not load the registrations:${error.message}`)
     })
     
 });
