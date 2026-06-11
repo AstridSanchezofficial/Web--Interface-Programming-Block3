@@ -28,7 +28,7 @@ export function createRegistration(registration){
 }
 
 export function clearContent(section){
-    section.innerHTML=``
+    section.innerHTML=""
 }
 
 export function styleTournamentSection(section){
