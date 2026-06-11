@@ -28,7 +28,7 @@ export function createRegistration(registration){
 }
 
 export function clearContent(section){
-    section.textContent=""
+    section.innerHTML=``
 }
 
 export function styleTournamentSection(section){
@@ -45,3 +45,35 @@ export function styleRegistrationSection(section){
     section.classList.add("d-flex","gap-4")
 }
 
+
+export function renderSummary(tournament, registrations) {
+    const summaryContainer = document.getElementById("summary");
+
+    const totalRegistrations = registrations.length;
+
+    const confirmedPlayers = registrations.filter(
+        r => r.status === "confirmed"
+    ).length;
+
+    const expectedRevenue = confirmedPlayers * tournament.entryFee;
+
+    const spotsLeft = tournament.spotsLeft;
+
+    summaryContainer.innerHTML = `
+        
+        <div class="fcard p-3 m-3 border-primary-subtle bg-primary-subtle">
+            <h4 class="card-title b text-primary">Summary: ${tournament.name}</h3>
+            <br>
+
+            <p><strong>Total registrations:</strong> ${totalRegistrations}</p>
+
+            <p><strong>Confirmed players:</strong> ${confirmedPlayers}</p>
+
+            <p><strong>Expected revenue:</strong> $${expectedRevenue}</p>
+
+            <p><strong>Spots left:</strong> ${spotsLeft}</p>
+        </div>
+        
+    `;
+
+}

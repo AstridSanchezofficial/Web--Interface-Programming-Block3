@@ -1,6 +1,9 @@
 import { fetchTournaments,fetchRegistrations } from "./api.js";
 import { Tournament } from "./tournament.js";
-import {clearContent,createCard,createRegistration,styleTournamentSection,styleBtns,styleRegistrationSection} from "./ui.js";
+import {clearContent,createCard,
+        createRegistration,styleTournamentSection,
+        styleBtns,styleRegistrationSection
+        ,renderSummary} from "./ui.js";
 import { getRegistrations } from "./registration.js";
 
 
@@ -10,6 +13,7 @@ const tournamentsSection=document.getElementById("tournaments-container")
 const clearBtn=document.getElementById("clear-btn")
 const registrationContainer=document.getElementById("registrations")
 const registrationStatus=document.getElementById("registration-status")
+const summary=document.getElementById("summary")
 
 let tournaments=[]
 
@@ -20,18 +24,13 @@ loadBtn.addEventListener("click", () => {
 
     fetchTournaments()
     .then((data) => {
-
-     
-        const tournaments=data.map(t=>Tournament.fromObject(t));
+        tournaments=data.map(t=>Tournament.fromObject(t));
        
         const cards=tournaments.map(tournament=> createCard(tournament));
         styleTournamentSection(tournamentsSection)
         tournamentsSection.innerHTML= cards.join("")
         
-        status.textContent = "Tournaments loaded!";
-        
-        
-        
+        status.textContent = "Tournaments loaded!"
 
     })
     .catch((error) => {
@@ -44,7 +43,9 @@ clearBtn.addEventListener("click",()=>{
     clearContent(tournamentsSection)
     status.textContent="Click the button to load the tournaments"
     clearContent(registrationContainer)
+    clearContent(summary)
     registrationStatus.textContent="No registrations yet"
+    
 })
 
 tournamentsSection.addEventListener("click", (e) => {
@@ -60,6 +61,11 @@ tournamentsSection.addEventListener("click", (e) => {
         registrationContainer.innerHTML=cardsRegistrations.join("")
         styleRegistrationSection(registrationContainer)
         registrationStatus.textContent="Registrations loaded succesfully"
+        const tournament = tournaments.find(
+        t => t.id === Number(tournamentId)
+    );
+
+    renderSummary(tournament, registrations);
     })
     .catch((error)=>{
         registrationStatus.textContent=`We could not load the registrations:${error.message}`
