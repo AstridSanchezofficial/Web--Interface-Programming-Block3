@@ -5,8 +5,8 @@ export class FeaturedPerformance extends Performance {
         id,
         title,
         artist,
-        time,
         stage,
+        time,
         ticketPrice,
         ticketsRemaining,
         featured
@@ -15,8 +15,8 @@ export class FeaturedPerformance extends Performance {
             id,
             title,
             artist,
-            time,
             stage,
+            time,
             ticketPrice,
             ticketsRemaining,
             featured
