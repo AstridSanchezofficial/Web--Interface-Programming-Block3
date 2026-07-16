@@ -1,24 +1,25 @@
 import Performance from "./Performance.js";
 
-export class FeaturedPerformance {
+export class FeaturedPerformance extends Performance {
     constructor(
         id,
         title,
         artist,
-        stage,
         time,
+        stage,
         ticketPrice,
         ticketsRemaining,
         featured
     ) {
         super(
-            title,
             id,
-            stage,
+            title,
             artist,
+            time,
+            stage,
             ticketPrice,
             ticketsRemaining,
-            time
+            featured
         );
 
         this.featured = Boolean(featured);

@@ -6,7 +6,7 @@ import { Performances } from "./Performance.js";
 
 import { FeaturedPerformance } from "./FeaturedPerformance.js";
 
-import "./PerformanceCards.js";
+import "./PerformanceCard.js";
 
 import { renderLoading, renderErrors, renderPerformance } from "./ui.js";
 

@@ -3,8 +3,8 @@ export class Performance {
     this.id = id;
     this.name = title;
     this.artist = artist;
-    this.stage = time;
-    this.time = stage;
+    this.time = time;
+    this.stage = stage;
     this.ticketPrice = String(ticketPrice);
     this.ticketsRemaining = String(ticketsRemaining);
     this.featured = false;
