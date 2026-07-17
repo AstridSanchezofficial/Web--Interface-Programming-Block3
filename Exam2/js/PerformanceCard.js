@@ -12,26 +12,26 @@ export class PerformanceCard extends HTMLElement{
 
         const template =
             document.getElementById(
-                "performance-template"
+                "performance-card-template"
             );
 
         shadow.appendChild(
-            template.cloneNode()
+            template.cloneNode(true)
         );
     }
 
     set performance(value) {
-        this.performance = value;
-        this.render;
+        this._performance = value;
+        this.render();
     }
 
     get performance() {
-        return this.performance;
+        return this._performance;
     }
 
     render() {
         const article =
-            document.querySelector(
+            document.shadowRoot.querySelector(
                 ".performance-card"
             );
 
@@ -40,13 +40,13 @@ export class PerformanceCard extends HTMLElement{
 
         if (this.performance.featured) {
             article.classList.add(
-                "sold-out"
+                "featured"
             );
         }
 
         if (!this.performance.hasTickets) {
             article.classList.add(
-                "featured"
+                "sold-out"
             );
         }
 
@@ -107,6 +107,6 @@ export class PerformanceCard extends HTMLElement{
 }
 
 customElements.define(
-    "performance",
-    PerformanceCard()
+    "performance-card",
+    PerformanceCard
 );
