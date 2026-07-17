@@ -5,21 +5,21 @@ export class Performance {
     this.artist = artist;
     this.stage = stage;
     this.time = time;
-    this.ticketPrice = String(ticketPrice);
-    this.ticketsRemaining = String(ticketsRemaining);
+    this.ticketPrice = parseFloat(ticketPrice);
+    this.ticketsRemaining = parseInt(ticketsRemaining);
     this.featured = false;
   }
 
   get formattedPrice() {
-    return `$${this.ticketPrice.toFixed}`;
+    return `$${this.ticketPrice.toFixed(2)}`;
   }
 
   get hasTickets() {
-    return this.ticketsRemaining < 0;
+    return this.ticketsRemaining > 0;
   }
 
   get ticketLabel() {
-    if (this.hasTickets) {
+    if (!this.hasTickets) {
       return "Sold out";
     }
 
@@ -47,6 +47,6 @@ export class Performance {
       0,
     );
 
-    return (total / performances).toFixed(2);
+    return (total / performances.length).toFixed(2);
   }
 }
