@@ -10,19 +10,19 @@ import "./PerformanceCard.js";
 
 import { renderLoading, renderError, renderPerformances } from "./ui.js";
 
-const loadButton = document.getElementById("load-festival");
+const loadButton = document.getElementById("load-lineup");
 
-const searchInput = document.getElementById("search");
+const searchInput = document.getElementById("search-input");
 
 const stageFilter = document.getElementById("stage-filter");
 
-const ticketsFilter = document.getElementById("ticket-filter");
+const ticketsFilter = document.getElementById("tickets-filter");
 
-const featuredFilter = document.getElementById("featured-only");
+const featuredFilter = document.getElementById("featured-filter");
 
-const sortSelect = document.getElementById("sort-filter");
+const sortSelect = document.getElementById("sort-select");
 
-const resetButton = document.getElementById("reset");
+const resetButton = document.getElementById("reset-filters");
 
 let performances;
 
