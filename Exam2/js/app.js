@@ -1,8 +1,8 @@
 import getFestivalData from "./api.js";
 
-import { Artist } from "./Artist.js";
+import Artist  from "./Artist.js";
 
-import { Performances } from "./Performance.js";
+import { Performance } from "./Performance.js";
 
 import { FeaturedPerformance } from "./FeaturedPerformance.js";
 
