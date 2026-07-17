@@ -59,43 +59,43 @@ export class PerformanceCard extends HTMLElement{
             .querySelector(".artist")
             .textContent =
                 this.performance
-                    .artist.displayLabel();
+                    .artist.displayLabel;
 
         this.shadowRoot
             .querySelector(".country")
             .textContent =
-                this.performance.artist.genre;
+                this.performance.artist.country;
 
         this.shadowRoot
             .querySelector(".genre")
             .textContent =
-                this.performance.artist.country;
+                this.performance.artist.genre;
 
         this.shadowRoot
             .querySelector(".stage")
             .textContent =
                 `Stage: ${
-                    this.performance.time
+                    this.performance.stage
                 }`;
 
         this.shadowRoot
             .querySelector(".time")
             .textContent =
                 `Time: ${
-                    this.performance.stage
+                    this.performance.time
                 }`;
 
         this.shadowRoot
             .querySelector(".price")
             .textContent =
                 this.performance
-                    .formattedPrice();
+                    .formattedPrice;
 
         this.shadowRoot
             .querySelector(".tickets")
             .textContent =
                 this.performance
-                    .ticketLabel();
+                    .ticketLabel;
 
         this.shadowRoot
             .querySelector(
