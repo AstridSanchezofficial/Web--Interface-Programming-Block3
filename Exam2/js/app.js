@@ -1,4 +1,4 @@
-import getFestivalData from "./api.js";
+import {getFestivalData} from "../api.js";
 
 import Artist  from "./Artist.js";
 
@@ -8,7 +8,7 @@ import { FeaturedPerformance } from "./FeaturedPerformance.js";
 
 import "./PerformanceCard.js";
 
-import { renderLoading, renderErrors, renderPerformance } from "./ui.js";
+import { renderLoading, renderError, renderPerformances } from "./ui.js";
 
 const loadButton = document.getElementById("load-festival");
 
