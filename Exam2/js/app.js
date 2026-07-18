@@ -1,4 +1,4 @@
-import {getFestivalData} from "../api.js";
+import {getFestivalData} from "./api.js";
 
 import Artist  from "./Artist.js";
 
@@ -27,19 +27,19 @@ const resetButton = document.getElementById("reset-filters");
 let performances;
 
 async function loadLineup() {
-  renderLoading;
+  renderLoading();
 
   loadButton.disabled = true;
 
   try {
-    const data = getFestivalData();
+    const data = await getFestivalData();
 
-    const artists = data.artists.map(
+    const artists =data.artists.map(
       (item) => new Artist(item.id, item.name, item.country, item.genre),
     );
 
-    performances = data.performances.map((item) => {
-      const artist = artists.filter((artist) => artist.id === item.artistId);
+    performances =data.performances.map((item) => {
+      const artist = artists.find((artist) => artist.id === item.artistId);
 
       if (item.featured) {
         return new FeaturedPerformance(
@@ -54,7 +54,7 @@ async function loadLineup() {
         );
       }
 
-      return new Performances(
+      return new Performance(
         item.id,
         item.title,
         artist,
@@ -65,7 +65,7 @@ async function loadLineup() {
       );
     });
 
-    renderPerformance(performances);
+    renderPerformances(performances);
 
     searchInput.disabled = false;
     stageFilter.disabled = false;
@@ -76,7 +76,7 @@ async function loadLineup() {
   } catch (error) {
     console.log("Lineup loaded:", error);
 
-    renderErrors(error.message);
+    renderError(error.message);
   }
 
   loadButton.disabled = true;

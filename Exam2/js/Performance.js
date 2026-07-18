@@ -1,7 +1,7 @@
 export class Performance {
   constructor(id, title, artist, stage, time, ticketPrice, ticketsRemaining) {
     this.id = id;
-    this.name = title;
+    this.title = title;
     this.artist = artist;
     this.stage = stage;
     this.time = time;
@@ -33,7 +33,7 @@ export class Performance {
   static totalAvailableTickets(performances) {
     return performances.reduce(
       (total, performance) => total + performance.ticketsRemaining,
-      "",
+      0,
     );
   }
 

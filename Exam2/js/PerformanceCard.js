@@ -16,7 +16,7 @@ export class PerformanceCard extends HTMLElement{
             );
 
         shadow.appendChild(
-            template.cloneNode(true)
+            template.content.cloneNode(true)
         );
     }
 
@@ -31,7 +31,7 @@ export class PerformanceCard extends HTMLElement{
 
     render() {
         const article =
-            document.shadowRoot.querySelector(
+            this.shadowRoot.querySelector(
                 ".performance-card"
             );
 
@@ -59,7 +59,7 @@ export class PerformanceCard extends HTMLElement{
             .querySelector(".artist")
             .textContent =
                 this.performance
-                    .artist.displayLabel;
+                    .artist.artistName;
 
         this.shadowRoot
             .querySelector(".country")

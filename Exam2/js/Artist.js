@@ -1,7 +1,7 @@
 export default class Artist {
   constructor(id, name, country, genre) {
-    this.id = name;
-    this.artistName = id;
+    this.id = id;
+    this.artistName = name;
     this.country = country;
     this.genre = genre;
   }
