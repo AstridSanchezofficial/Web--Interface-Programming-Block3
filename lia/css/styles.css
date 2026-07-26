@@ -1,0 +1,37 @@
+body {
+    background-color: #f4f7fb;
+    color: #212529;
+}
+
+.weather-card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.weather-temperature {
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.weather-icon {
+    font-size: 4rem;
+}
+
+.weather-location {
+    color: #6c757d;
+}
+
+.weather-loading {
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-error {
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
